@@ -33,19 +33,17 @@ on "Continue".
 
 ## Fill in the username and password and click "Sign in"
 
-Fill in the username, which is 'tx160085' for the ANGUS workshop,
-and then enter the password (which we will tell you in class).
+Fill in your username and password.
 
 [![foo](images/login-3.thumb.png)](../_images/login-3.png)
            
 ## Select Projects and "Create New Project"
 
-Now, this is something you only need to once if you have your own
-account - but if you're using a shared account like tx160085, you will
-need a way to keep your computers separate from everyone else's.
+(This is something you only need to do once if you have your own
+account.)
 
-We'll do this with Projects, which give you a bit of a workspace in which
-to keep things that belong to "you".
+Let's create a workspace in which to keep things that belong to a
+particular porject.
 
 Click on "Projects" up along the top.
 
@@ -73,7 +71,7 @@ Now, select 'New' and then "Instance" from the dropdown menu to start up a new m
 ## Find the "Ubuntu 16.04" image, click on it
 
 Enter "Ubuntu 16.04" into the search bar - make sure it's from
-June 21st, 2017.
+Jan 10th, 2018.
 
 [![foo](images/login-9.thumb.png)](../_images/login-9.png)
            
@@ -94,10 +92,8 @@ Just wait! Don't reload or anything.
 ## Click on your new instance to get more information!
 
 Now, you can either click "Open Web Shell", *or*, if you know how to use ssh,
-you can ssh in as user 'tx160085' on the IP address of the machine - see
-circled information below.  Note that you'll need to use the private key
-file we sent around to everyone in last the pre-workshop e-mail if you decide to
-use your system terminal.
+you can ssh in as your username on the IP address of the machine - see
+circled information below.
 
 [![foo](images/login-12.thumb.png)](../_images/login-12.png)
 
