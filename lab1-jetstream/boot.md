@@ -177,3 +177,5 @@ It may take Jetstream a few minutes to process your request. The instance should
 [![foo](images/delete-3.png)](../_images/delete-3.png)
 
 [![foo](images/delete-4.png)](../_images/delete-4.png)
+
+## [NEXT - Running command line BLAST](running-command-line-blast.md)
