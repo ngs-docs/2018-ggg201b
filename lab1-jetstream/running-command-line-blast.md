@@ -31,7 +31,6 @@ we'll use `curl` to download the files:
 ```
 curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.1.protein.faa.gz
 curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.2.protein.faa.gz
-curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.3.protein.faa.gz
 
 curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
 ```
@@ -48,22 +47,21 @@ ls -l
 should show you:
 
 ```
-total 29056
-drwxr-xr-x 2 titus titus     4096 May  5 08:26 Desktop
-drwxr-xr-x 2 titus titus     4096 Jun 14 18:03 Documents
-drwxr-xr-x 2 titus titus     4096 Jun 14 18:03 Downloads
--rw-rw-r-- 1 titus titus  3610407 Jun 14 18:11 mouse.1.protein.faa.gz
--rw-rw-r-- 1 titus titus  6080985 Jun 14 18:11 mouse.2.protein.faa.gz
--rw-rw-r-- 1 titus titus  7520591 Jun 14 18:11 mouse.3.protein.faa.gz
-drwxr-xr-x 2 titus titus     4096 Jun 14 18:03 Music
-drwxr-xr-x 2 titus titus     4096 Jun 14 18:03 Pictures
-drwxr-xr-x 2 titus titus     4096 Jun 14 18:03 Public
-drwxr-xr-x 2 titus titus     4096 Jun 14 18:03 Templates
-drwxr-xr-x 2 titus titus     4096 Jun 14 18:03 Videos
--rw-rw-r-- 1 titus titus 12500932 Jun 14 18:11 zebrafish.1.protein.faa.gz
+total 30004
+drwxr-xr-x 2 titus titus     4096 May  5  2017 Desktop
+drwxr-xr-x 2 titus titus     4096 Jan 18 10:58 Documents
+drwxr-xr-x 2 titus titus     4096 Jan 18 10:58 Downloads
+-rw-rw-r-- 1 titus titus 12368439 Jan 18 11:07 mouse.1.protein.faa.gz
+-rw-rw-r-- 1 titus titus  4342117 Jan 18 11:07 mouse.2.protein.faa.gz
+drwxr-xr-x 2 titus titus     4096 Jan 18 10:58 Music
+drwxr-xr-x 2 titus titus     4096 Jan 18 10:58 Pictures
+drwxr-xr-x 2 titus titus     4096 Jan 18 10:58 Public
+drwxr-xr-x 2 titus titus     4096 Jan 18 10:58 Templates
+drwxr-xr-x 2 titus titus     4096 Jan 18 10:58 Videos
+-rw-rw-r-- 1 titus titus 13974288 Jan 18 11:08 zebrafish.1.protein.faa.gz
 ```
 
-All four of the files are FASTA protein files (that's what the .faa
+All three of the files are FASTA protein files (that's what the .faa
 suggests) that are compressed with `gzip` (that's what the .gz means).
 
 Uncompress them:
@@ -146,13 +144,7 @@ less mm-second.x.zebrafish.txt
 
 Notes:
 
-* you can execute multiple commands at a time;
-
-* You might see a warning -
-
-    `Selenocysteine (U) at position 310 replaced by X`
-
-  what does this mean?
+* you can copy/paste multiple commands at a time, and they will execute in order;
 
 * why did it take longer to BLAST ``mm-second.fa`` than ``mm-first.fa``?
 
@@ -162,9 +154,3 @@ Things to mention and discuss:
 * command line options, more generally - why so many?
 * automation rocks!
 
-Reminder: shut down your instance!
-
-Other topics to discuss:
-
-* when you shut down, you lose all your data
-* what computer(s) is this all happening on?

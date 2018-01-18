@@ -21,8 +21,8 @@ sudo apt-get update && sudo apt-get -y install gdebi-core r-base
 
 After that finishes, download and install RStudio:
 ```
-wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
-sudo gdebi -n rstudio-server-1.0.143-amd64.deb 
+wget https://download2.rstudio.org/rstudio-server-1.0.153-amd64.deb
+sudo gdebi -n rstudio-server-1.0.153-amd64.deb 
 ```
 
 You should see now see text indicating an RStudio server has started:
@@ -43,16 +43,15 @@ connect to to access YOUR server, run:
 echo My RStudio Web server is running at: http://$(hostname):8787/
 ```
 
-After running this, copy/paste the URL into your Web browser; you should
-see login page. Enter the XSEDE username and password you were given
-(should be `tx160085` username, with associated password).
-
-If the login is unsuccessful, return to the terminal and run:
+Go to that URL in a Web browser and try to log in with your username
+and password - if the login is unsuccessful, return to the terminal
+and run:
 
 ```
-sudo passwd tx160085
+sudo passwd USERNAME
 ```
-to change your password for this instance.
+to change your password for this instance - replace USERNAME with your
+actual username :)
 
 You will be prompted to enter a new password:
 
@@ -61,6 +60,8 @@ Enter new UNIX password:
 Retype new UNIX password:
 ```
 but note that the text will not echo to the screen (because it's a password!)
+
+----
 
 Return to the browser login page and enter your new password. Note
 this will not change the global XSEDE login info (i.e. it only affects
@@ -209,3 +210,10 @@ work.
   and do you notice anything interesting about the names?  (They're
   all predicted/inferred genes.) What does this suggest about that
   "quadrant" of the data?
+
+Reminder: shut down your instance!
+
+Other topics to discuss:
+
+* when you shut down, you lose all your data
+* what computer(s) is this all happening on?
