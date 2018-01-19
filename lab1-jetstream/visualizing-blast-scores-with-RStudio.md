@@ -76,94 +76,86 @@ Web interface for those of you who haven't seen it.
 
 (Enter the below commands into RStudio, not the command line.)
 
-Download the precomputed data, and give it a better name; you could also
-use your precomputed shmlast results --
+Load the data you created with BLAST:
 
 ```
-download.file("https://github.com/ngs-docs/angus/raw/17a0ba3b1d915de90a5b8bd1fbc1027eba47baf8/_static/shmlast/mouse.1.rna.fna.gz.x.cow.faa.crbl.csv.gz", "shmlast_mouse.rna.fna.gz.x.cow.faa.crbl.csv")
+blast_out <- read.table('mm-second.x.zebrafish.tsv', sep='\t')
 ```
 
-Next, read the object in to R, and name it something that you might remember
+If you run `View(blast_out)`, you'll see the same information as in
+the previous section, *but* loaded into R for plotting and manipulation.
+
+The only problem is that the column names are kind of opaque - what does V1
+mean!?  To fix this, we can reset the column names like so, using the
+information from [the BLAST outfmt documentation](http://www.metagenomics.wiki/tools/blast/blastn-output-format-6):
 
 ```
-shmlast_out <- read.csv("shmlast_mouse.rna.fna.gz.x.cow.faa.crbl.csv")
+colnames(blast_out) <- c("qseqid", "sseqid", "pident", "length", "mismatch", "gapopen", "qstart", "qend", "sstart", "send", "evalue", "bitscore")
+View(blast_out)
 ```
 
-Now we can take a look at the data in a slightly nicer way!
-
-This is called a dataframe, which is a sort of R-ish version of a
-spreadsheet with named columns. Use the `head()` command to take a
-look at the beginning of it all:
-
-```
-head(shmlast_out)
-```
-
-this is a generic R command that acts very much like the UNIX command
-line `head` command but gives you a slightly nicer more structured view.
-In RStudio you can also use the `view` command,
-
-```
-View(shmlast_out)
-```
-which is much nicer altogether!
+`blast_out` is called a dataframe, which is a sort of R-ish version of a
+spreadsheet with named columns.  `View` can be used to present it nicely,
+and `head(blast_out)` can be used to look at just the first few rows.
 
 Another useful command is `dim` which will tell you the DIMENSIONS of this
 data frame:
 
 ```
-dim(shmlast_out)
+dim(blast_out)
 ```
 
-That's a big data frame! 132,900 rows (and 17 columns!)
+That's a big data frame! 14,720 rows (and 12 columns!)
 
-Let's do some data visualization to get a handle on what our blast output looked like: first, let's look at the `E_scaled` column.
+Let's do some data visualization to get a handle on what our blast output looked like. First, let's look at the evalue:
 
 ```
-hist(shmlast_out$E_scaled)
+hist(blast_out$evalue)
 ```
 
-This is telling us that MOST of the values in the `E_scaled` column are
-quite high.  What does this mean? How do we figure out what this is?
-
-(Hint: the [shmlast documentation](https://github.com/camillescott/shmlast) should tell us! Go to that page and search for "To fit the model".)
+This is telling us that MOST of the values in the `evalue` column are
+quite low.  What does this mean? How do we figure out what this is?
 
 So these are a lot of *low* e-values.  Is that good or bad?  Should we
-be happy or concerned that 
+be happy or concerned?
 
 We can take a look at some more stats -- let's look at the `bitscore` column:
 
 ```
-hist(shmlast_out$bitscore) 
+hist(blast_out$bitscore) 
 ```
 
 what are we looking for here? (And how would we know?)
 
-(Hint: longer bitscores are better, but even bitscores of ~1000 mean a
-nucleotide alignment of 1000 bp - which is pretty good, no? Here we really
+(Hint: longer bitscores are better, but even bitscores of ~200 mean a
+nucleotide alignment of 200 bp - which is pretty good, no? Here we really
 want to rescale the x axis to look at the distribution of bitscores in the
 100-300 range.)
 
-We can also look at the length of the queries, which are the mouse sequences
-in this case. 
-
-```
-hist(shmlast_out$q_len)
-```
- Compare this to the bitscores... do things match? Are
-most mouse sequences getting matched by something of equivalent length?
+Another question - if 'bitscore' is a score of the match, and 'pident'
+is the percent identity - is there a relationship between bitscore and
+pident?
 
 Well, we can ask this directly with `plot`:
 
 ```
-plot(shmlast_out$q_len, shmlast_out$bitscore)
+plot(blast_out$pident, blast_out$bitscore)
 ```
 
 why does this plot look the way it does?  (This may take a minute to show
 up, note!)
 
-(The bitscores are limited by the length of the sequences! You can't get a
-*longer* bitscore than you have bases to align.)
+The answer is that bitscores are only *somewhat* related to pident; they
+take into account not only the percent identity but the length.  You can
+get a napkin sketch estimate of this by doing the following:
+
+```
+plot(blast_out$pident  * (blast_out$qend - blast_out$qstart), blast_out$bitscore)
+```
+
+which constructs a *new* variable, the percent identity times the
+length of the match, and then plots it against bitscore; *this*
+correlation looks much better.
 
 ### Summary points
 
@@ -188,29 +180,8 @@ work.
   
 * What other things could we look at?
 
-* Have we done a basic check of just *looking* at the data? Go back and
-  look at the data frame!  Do the gene name assignments look right?
+----
   
-  How might we do this a bit more systematically, while still "looking"
-  at things? Try googling 'choose random rows from data frame' and then
-  run
-  
-  ```
-  shmlast_sub = shmlast_out[sample(nrow(shmlast_out), 10),]
-  View(shmlast_sub)
-  ```
-  
-* What does the following code do?
-
-  ```
-  tmp <- subset(shmlast_out, q_len >= 8000 & q_len <= 11000 & bitscore <=2000)    
-  functions <- tmp[, c("q_name", "s_name")]
-  ```
-
-  and do you notice anything interesting about the names?  (They're
-  all predicted/inferred genes.) What does this suggest about that
-  "quadrant" of the data?
-
 Reminder: shut down your instance!
 
 Other topics to discuss:
