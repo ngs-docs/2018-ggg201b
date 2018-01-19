@@ -116,6 +116,9 @@ hist(blast_out$evalue)
 This is telling us that MOST of the values in the `evalue` column are
 quite low.  What does this mean? How do we figure out what this is?
 
+(You can also try plotting the distribution of `-log(blast_out$evalue)` - why
+is this more informative?)
+
 So these are a lot of *low* e-values.  Is that good or bad?  Should we
 be happy or concerned?
 
