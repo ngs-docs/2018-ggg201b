@@ -154,3 +154,16 @@ Things to mention and discuss:
 * command line options, more generally - why so many?
 * automation rocks!
 
+----
+
+Last, but not least, let's generate a more machine-readable version of that
+last file --
+
+```
+blastp -query mm-second.fa -db zebrafish.1.protein.faa -out mm-second.x.zebrafish.tsv -outfmt 6
+```
+
+See [this link](http://www.metagenomics.wiki/tools/blast/blastn-output-format-6) for a description of the possible BLAST output formats.
+
+## [NEXT - Visualizing BLAST score distributions in RStudio](visualizing-blast-scores-with-RStudio.md)
+
