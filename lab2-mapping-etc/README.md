@@ -1,5 +1,7 @@
 # Lab 2
 
+[Boot a Jetstream](../lab1-jetstream/boot.md)
+
 ## At the command line:
 
 1. Run `git clone https://github.com/ngs-docs/2017-ucdavis-igg201b.git`
@@ -38,4 +40,3 @@ sudo apt-get install -f
 There's a [nice tutorial](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) on the FastQC web site for those who are interested in more.
 
 ## REMEMBER TO DELETE YOUR JETSTREAM INSTANCE.
-
