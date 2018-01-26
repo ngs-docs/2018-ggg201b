@@ -22,15 +22,15 @@
 
 First install the prerequisites:
 ```
-sudo apt-get -y install openjdk-8-jre libcommons-math3-java libjbzip2-java fastqc
+sudo apt-get -y install openjdk-8-jre libcommons-math3-java libjbzip2-java
 ```
 
 and then install fastqc:
 ```
 cd ~/
 wget https://launchpad.net/ubuntu/+archive/primary/+files/fastqc_0.11.5+dfsg-3_all.deb && \
-sudo dpkg -i fastqc_0.11.5+dfsg-3_all.deb && \
-sudo apt-get install -f
+sudo apt-get install -f && \
+sudo dpkg -i fastqc_0.11.5+dfsg-3_all.deb
 ```
 
 7. Run FastQC:
