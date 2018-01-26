@@ -2,21 +2,17 @@
 
 [Boot a Jetstream](../lab1-jetstream/boot.md)
 
-## At the command line:
-
-1. Run `git clone https://github.com/ngs-docs/2017-ucdavis-igg201b.git`
-
 ## Look at some FASTQ data
 
-2. In a Web browser, go to [the ENA record for SRX1317384](https://www.ebi.ac.uk/ena/data/view/SRX1317384)
+1. In a Web browser, go to [the ENA record for SRX1317384](https://www.ebi.ac.uk/ena/data/view/SRX1317384)
 
-3. Copy the url for `Fastq files (ftp)`, `File 1`.
+2. Copy the url for `Fastq files (ftp)`, `File 1`.
 
-4. In your terminal, execute `curl -O ` and then paste in the URL.
+3. In your terminal, execute `curl -O ` and then paste in the URL.
 
-5. Wait for it to download.
+4. Wait for it to download.
 
-6. Run
+5. Run
 
         gunzip -c SRR2584857_1.fastq.gz | head
         
