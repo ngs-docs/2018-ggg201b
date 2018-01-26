@@ -26,6 +26,7 @@ sudo apt-get -y install openjdk-8-jre libcommons-math3-java libjbzip2-java
 ```
 
 and then install fastqc:
+
 ```
 cd ~/
 wget https://launchpad.net/ubuntu/+archive/primary/+files/fastqc_0.11.5+dfsg-3_all.deb && \
