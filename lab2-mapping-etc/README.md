@@ -22,7 +22,7 @@
 
 First install the prerequisites:
 ```
-sudo apt-get -y install openjdk-8-jre libcommons-math3-java libjbzip2-java
+sudo apt-get -y install openjdk-8-jre libcommons-math3-java libjbzip2-java fastqc
 ```
 
 and then install fastqc:
