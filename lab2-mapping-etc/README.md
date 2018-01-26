@@ -21,6 +21,7 @@
 6. Install [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/):
 
 ```
+apt-get -y install openjdk-8-jre
 cd ~/
 wget https://launchpad.net/ubuntu/+archive/primary/+files/fastqc_0.11.5+dfsg-3_all.deb && \
 sudo dpkg -i fastqc_0.11.5+dfsg-3_all.deb && \
