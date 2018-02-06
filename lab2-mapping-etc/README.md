@@ -1,6 +1,6 @@
 # Lab 2
 
-[Boot a Jetstream](../lab1-jetstream/boot.md)
+[Boot a Jetstream instance](../lab1-jetstream/boot.md)
 
 ## Look at some FASTQ data
 
