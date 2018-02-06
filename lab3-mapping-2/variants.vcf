@@ -1,0 +1,46 @@
+##fileformat=VCFv4.1
+##samtoolsVersion=0.1.19-96b5f2294a
+##reference=file://ecoli-rel606.fa
+##contig=<ID=ecoli,length=4629812>
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Raw read depth">
+##INFO=<ID=DP4,Number=4,Type=Integer,Description="# high-quality ref-forward bases, ref-reverse, alt-forward and alt-reverse bases">
+##INFO=<ID=MQ,Number=1,Type=Integer,Description="Root-mean-square mapping quality of covering reads">
+##INFO=<ID=FQ,Number=1,Type=Float,Description="Phred probability of all samples being the same">
+##INFO=<ID=AF1,Number=1,Type=Float,Description="Max-likelihood estimate of the first ALT allele frequency (assuming HWE)">
+##INFO=<ID=AC1,Number=1,Type=Float,Description="Max-likelihood estimate of the first ALT allele count (no HWE assumption)">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
+##INFO=<ID=IS,Number=2,Type=Float,Description="Maximum number of reads supporting an indel and fraction of indel reads">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes for each ALT allele, in the same order as listed">
+##INFO=<ID=G3,Number=3,Type=Float,Description="ML estimate of genotype frequencies">
+##INFO=<ID=HWE,Number=1,Type=Float,Description="Chi^2 based HWE test P-value based on G3">
+##INFO=<ID=CLR,Number=1,Type=Integer,Description="Log ratio of genotype likelihoods with and without the constraint">
+##INFO=<ID=UGT,Number=1,Type=String,Description="The most probable unconstrained genotype configuration in the trio">
+##INFO=<ID=CGT,Number=1,Type=String,Description="The most probable constrained genotype configuration in the trio">
+##INFO=<ID=PV4,Number=4,Type=Float,Description="P-values for strand bias, baseQ bias, mapQ bias and tail distance bias">
+##INFO=<ID=INDEL,Number=0,Type=Flag,Description="Indicates that the variant is an INDEL.">
+##INFO=<ID=PC2,Number=2,Type=Integer,Description="Phred probability of the nonRef allele frequency in group1 samples being larger (,smaller) than in group2.">
+##INFO=<ID=PCHI2,Number=1,Type=Float,Description="Posterior weighted chi^2 P-value for testing the association between group1 and group2 samples.">
+##INFO=<ID=QCHI2,Number=1,Type=Integer,Description="Phred scaled PCHI2.">
+##INFO=<ID=PR,Number=1,Type=Integer,Description="# permutations yielding a smaller PCHI2.">
+##INFO=<ID=QBD,Number=1,Type=Float,Description="Quality by Depth: QUAL/#reads">
+##INFO=<ID=RPB,Number=1,Type=Float,Description="Read Position Bias">
+##INFO=<ID=MDV,Number=1,Type=Integer,Description="Maximum number of high-quality nonRef reads in samples">
+##INFO=<ID=VDB,Number=1,Type=Float,Description="Variant Distance Bias (v2) for filtering splice-site artefacts in RNA-seq data. Note: this version may be broken.">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=GL,Number=3,Type=Float,Description="Likelihoods for RR,RA,AA genotypes (R=ref,A=alt)">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="# high-quality bases">
+##FORMAT=<ID=DV,Number=1,Type=Integer,Description="# high-quality non-reference bases">
+##FORMAT=<ID=SP,Number=1,Type=Integer,Description="Phred-scaled strand bias P-value">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="List of Phred-scaled genotype likelihoods">
+##INFO=<ID=PR,Number=1,Type=Integer,Description="# permutations yielding a smaller PCHI2.">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SRR2584857.sorted.bam
+ecoli	316081	.	C	T	3.54	.	DP=15;VDB=3.680000e-02;RPB=-4.246039e-01;AF1=0.4998;AC1=1;DP4=7,6,1,1;MQ=60;FQ=5.47;PV4=1,1,1,0.053	GT:PL:DP:GQ	0/1:31,0,252:15:30
+ecoli	920514	.	T	C	222	.	DP=71;VDB=1.136988e-02;AF1=1;AC1=2;DP4=0,0,25,42;MQ=60;FQ=-229	GT:PL:DP:GQ	1/1:255,202,0:67:99
+ecoli	3174256	.	T	G	3.01	.	DP=37;VDB=9.640306e-02;RPB=7.373940e-01;AF1=0.4997;AC1=1;DP4=2,18,8,0;MQ=60;FQ=4.77;PV4=1.4e-05,2.3e-10,1,1	GT:PL:DP:GQ	0/1:30,0,234:28:28
+ecoli	3931002	.	A	C	222	.	DP=41;VDB=2.340625e-02;AF1=1;AC1=2;DP4=0,0,22,19;MQ=60;FQ=-150	GT:PL:DP:GQ	1/1:255,123,0:41:99
+ecoli	4141441	.	C	T	222	.	DP=36;VDB=2.445223e-01;AF1=1;AC1=2;DP4=0,0,14,18;MQ=60;FQ=-123	GT:PL:DP:GQ	1/1:255,96,0:32:99
+ecoli	4202391	.	T	G	222	.	DP=53;VDB=3.373880e-01;RPB=-1.732397e+00;AF1=1;AC1=2;DP4=1,0,27,22;MQ=60;FQ=-152;PV4=1,1,1,1	GT:PL:DP:GQ	1/1:255,125,0:50:99
+ecoli	4530767	.	CACCCTAACCCT	CACCCTAACCCTAACCCT	214	.	INDEL;IS=35,0.636364;DP=55;VDB=2.619137e-01;AF1=1;AC1=2;DP4=0,0,20,22;MQ=60;FQ=-161	GT:PL:DP:GQ	1/1:255,126,0:42:99
+ecoli	4530768	.	ACCCTA	ACCCTACCCCTA	217	.	INDEL;IS=3,0.052632;DP=57;VDB=3.126742e-01;AF1=0.5;AC1=1;DP4=4,7,17,22;MQ=60;FQ=76.5;PV4=0.74,1,1,1	GT:PL:DP:GQ	0/1:255,0,111:50:99
+ecoli	4530774	.	ACCCT	ACCCTACCCCT	214	.	INDEL;IS=1,0.017544;DP=57;VDB=1.947355e-02;AF1=1;AC1=2;DP4=1,1,18,23;MQ=60;FQ=-113;PV4=1,1,1,1	GT:PL:DP:GQ	1/1:255,78,0:43:99
