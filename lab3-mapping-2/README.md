@@ -29,7 +29,11 @@ Goal: get the sequence data!
 curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/007/SRR2584857/SRR2584857_1.fastq.gz
 ```
         
-...and take a quick look at it ;).
+...and take a quick look at it:
+
+```
+gunzip -c SRR2584857_1.fastq.gz | head
+```
 
 ## Map data
 
@@ -66,7 +70,7 @@ gunzip ecoli-rel606.fa.gz
 and look at it:
 
 ```
-head ecoli-rel606.fa.gz
+head ecoli-rel606.fa
 ```
         
 4. Prepare it for mapping:
@@ -135,6 +139,12 @@ samtools tview SRR2584857.sorted.bam ecoli-rel606.fa
    * `q` to quit
    * CTRL-h and CTRL-l do "big" scrolls
    * `g ecoli:3930990` will take you to a specific location with a variant.
+   
+7. Get some summary statistics as well:
+
+```
+samtools flagstat SRR2584857.sorted.bam
+```
    
 ## Call variants!
 
