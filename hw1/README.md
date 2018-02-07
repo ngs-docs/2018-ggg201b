@@ -1,9 +1,9 @@
 # Lab / Homework 1
 
-Due ???, Feb ???th, 5pm.
+Due Saturday, February 17th, at 12:01am (i.e 1 minute into Saturday).
 
 To turn in, e-mail the document to Titus at ctbrown@ucdavis.edu with
-'GGG 201b HW1' in the title.
+'GGG 201b Lab HW1' in the title.
 
 ## Task: Call variants!
 
@@ -21,6 +21,7 @@ after you do the git clone.
 *different* from the ones you generated in
 [lab 3](../lab3-mapping-2/README.md).  Note that the previous VCF file
 is available for download in [lab 3](../lab3-mapping-2/variants.vcf).
+You can use `tail variants.vcf` to see the lines below the comments.
 
    You can ignore the comment lines; just copy/paste in the variant lines.
 

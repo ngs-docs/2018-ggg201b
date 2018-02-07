@@ -161,6 +161,11 @@ samtools mpileup -uD -f ecoli-rel606.fa SRR2584857.sorted.bam | \
 bcftools view variants.raw.bcf > variants.vcf
 ```
 
+To look at the entire `variants.vcf` file you can do `cat
+variants.vcf`; all of the lines starting with `#` are comments.  You
+can use `tail variants.vcf` to see the last ~10 lines, which should
+be all of the called variants.
+
 ## Discussion points / extra things to cover
 
 * What are the drawbacks to mapping-based variant calling? What are
