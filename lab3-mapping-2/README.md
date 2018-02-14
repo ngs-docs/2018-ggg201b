@@ -43,7 +43,7 @@ Goal: execute a basic mapping
 
 ```
 cd
-curl -L https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.17.tar.bz2/download -o bwa-0.7.17.tar.bz2
+curl -L -O https://github.com/ngs-docs/2018-ggg201b/raw/master/lab2-mapping-etc/bwa-0.7.17.tar.bz2
 
 tar xjvf bwa-0.7.17.tar.bz2
 cd bwa-0.7.17
