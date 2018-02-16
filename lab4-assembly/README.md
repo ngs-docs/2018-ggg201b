@@ -108,6 +108,8 @@ This contains a set of summary stats. Are they good?
 
 (What is "good"? How do you measure it? Etc. etc.)
 
+Question: why so many contigs?!
+
 ## Digression: downloading files
 
 ```
@@ -149,6 +151,40 @@ echo http://$(hostname):8000/
 
 and note things like file view, download, etc. etc.
 
-## End of days
+## Bonus: comparing reads to genome with Jaccard containment
 
-Question: why so many contigs?!
+sourmash is a tool developed in my lab for sample comparison. Let's
+compare the assembled genome with the raw reads to see if what's in the
+reads is in the genome, and vice versa.
+
+Adjusting [the tutorial](https://sourmash.readthedocs.io/en/latest/tutorials.html) a bit, we can do:
+
+```
+pip install -U https://github.com/dib-lab/sourmash/archive/master.zip
+```
+
+Then
+
+```
+sourmash compute --scaled 1000 ecoli_ref-5m.fastq.gz -o ecoli-reads.sig -k 31
+sourmash compute --scaled 1000 ecoli-assembly.fa -k 31
+```
+
+and now evaluate [Jaccard similarity](https://en.wikipedia.org/wiki/Jaccard_index) and Jaccard containment.
+
+How similar is the assembly to the reads?
+
+```
+sourmash search ecoli-assembly.fa.sig ecoli-reads.sig
+```
+
+How much of the assembly is contained within the reads?
+
+```
+sourmash search ecoli-assembly.fa.sig ecoli-reads.sig --containment
+```
+
+How much of the reads is contained within the assembly?
+```
+sourmash search ecoli-reads.sig ecoli-assembly.fa.sig --containment
+```
