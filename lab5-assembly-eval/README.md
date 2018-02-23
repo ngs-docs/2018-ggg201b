@@ -207,3 +207,21 @@ trimmed reads; let's compute a signature of that, too.
 ```
 sourmash compute --scaled 1000 ecoli_ref-5m.fastq.gz.abundtrim -o ecoli-trimmed-reads.sig -k 31
 ```
+
+Now you can do:
+
+```
+sourmash search ecoli-trimmed-reads.sig ecoli-assembly.fa.sig
+```
+
+and
+
+```
+sourmash search ecoli-trimmed-reads.sig ecoli-reads.sig
+```
+
+or compare all three with
+
+```
+sourmash compare *.sig
+```
