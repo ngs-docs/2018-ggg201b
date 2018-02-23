@@ -101,7 +101,13 @@ map single reads whose pair doesn't map fairly close to the other read.
 
 (Why can we subsample when doing this?)
 
+We'll use `split-paired-reads.py` from 
+[the khmer software](https://khmer.readthedocs.io/en/v2.1.1/) to 
+split the paired reads into singleton files:
+
 ```
+cd ~/work
+
 gunzip -c ecoli_ref-5m.fastq.gz | head -1000000 | 
         split-paired-reads.py -1 head.1 -2 head.2 
 ```
