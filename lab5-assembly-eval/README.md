@@ -162,7 +162,9 @@ First we need to compute the subsampled signaturres of the data sets.
 Adjusting [the tutorial](https://sourmash.readthedocs.io/en/latest/tutorials.html) a bit, we can do:
 
 ```
+cd
 pip install -U https://github.com/dib-lab/sourmash/archive/master.zip
+cd ~/work
 ```
 
 Then
