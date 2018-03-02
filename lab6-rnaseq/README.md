@@ -11,7 +11,50 @@ Learning objectives:
 
 0. Start up a new cloud instance; m1.medium is probably fine for this.
 
-1. Connect to Terminal. Run `bash`.
+1. Installing Jupyter Notebook and run Terminal.
+
+```
+pip install jupyter
+```
+
+then
+
+```
+jupyter notebook --generate-config
+```
+
+and
+
+```
+cat >> ~/.jupyter/jupyter_notebook_config.py <<EOF
+c = get_config()
+c.NotebookApp.ip = '*'
+c.NotebookApp.open_browser = False
+c.NotebookApp.password = u'sha1:5d813e5d59a7:b4e430cf6dbd1aad04838c6e9cf684f4d76e245c'
+c.NotebookApp.port = 8000
+
+EOF
+```
+
+These commands will install Jupyter Notebook and configure it to run on
+port 8000 with a password.
+
+Now, run it!
+
+```
+jupyter notebook &
+```
+
+You can figure out what Web address to connect to this way:
+```
+echo http://$(hostname):8000/
+```
+
+and note things like file view, download, etc. etc.
+
+Now go to that Web address in your browser and start a terminal!
+(New... Terminal...)
+
 
 2. Install base R.
 
@@ -25,7 +68,7 @@ sudo apt-get -y install r-base-core
 cd
 git clone https://github.com/ngs-docs/2018-ggg201b.git
 
-sudo Rscript --no-save ~/2018-ggg201b/lab7-rnaseq/install-edgeR.R
+sudo Rscript --no-save ~/2018-ggg201b/lab6-rnaseq/install-edgeR.R
 ```
 
 4. Install [salmon](https://salmon.readthedocs.io):
@@ -92,7 +135,7 @@ python2 ~/2018-ggg201b/lab6-rnaseq/gather-counts.py
 11. Run edgeR (in R) using [this script](https://github.com/ngs-docs/2018-ggg201b/blob/master/lab6-rnaseq/yeast.salmon.R) and take a look at the output:
 
 ```
-Rscript --no-save ~/2017-igg201b/lab6-rnaseq/yeast.salmon.R
+Rscript --no-save ~/2018-ggg201b/lab6-rnaseq/yeast.salmon.R
 ```
 
 This will produce two plots, `yeast-edgeR-MA-plot.pdf` and
