@@ -93,6 +93,12 @@ Also install samtools:
 sudo apt-get -y install samtools
 ```
 
+And install [khmer software](https://khmer.readthedocs.io/en/v2.1.2/user/install.html):
+
+```
+pip install khmer
+```
+
 ### Split and subsample the reads
 
 Now, we'll do paired-end mapping - this is a way to see how much of the
@@ -162,7 +168,9 @@ First we need to compute the subsampled signaturres of the data sets.
 Adjusting [the tutorial](https://sourmash.readthedocs.io/en/latest/tutorials.html) a bit, we can do:
 
 ```
+cd
 pip install -U https://github.com/dib-lab/sourmash/archive/master.zip
+cd ~/work
 ```
 
 Then
