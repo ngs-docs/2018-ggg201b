@@ -2,7 +2,7 @@
 
 Learning objectives:
 
-1. Go through an RNAseq quantification and differential expression pipeline!
+1. Go through an RNAseq quantification and differential expression analysis pipeline!
 
 2. Break the pipeline down into steps.
 
