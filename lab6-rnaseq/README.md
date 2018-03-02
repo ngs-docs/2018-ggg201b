@@ -2,16 +2,17 @@
 
 Learning objectives:
 
-@CTB
-1. Dig into some statistical thoughts.
+1. Go through an RNAseq quantification and differential expression pipeline!
 
-2. Think about the pipeline, and maybe the github.
+2. Break the pipeline down into steps.
+
+3. Dig into some statistical thoughts.
 
 ## Running an RNAseq analysis.
 
 0. Start up a new cloud instance; m1.medium is probably fine for this.
 
-1. Installing Jupyter Notebook and run Terminal.
+1. Install Jupyter Notebook and run Terminal.
 
 ```
 pip install jupyter
@@ -62,7 +63,7 @@ Now go to that Web address in your browser and start a terminal!
 sudo apt-get -y install r-base-core
 ```
 
-3. Install edgeR using [this script](https://github.com/ngs-docs/2018-ggg201b.git/blob/master/lab6-rnaseq/install-edgeR.R):
+3. Install edgeR using [this script](https://github.com/ngs-docs/2018-ggg201b/blob/master/lab6-rnaseq/install-edgeR.R):
 
 ```
 cd
@@ -78,6 +79,7 @@ cd
 curl -L -O https://github.com/COMBINE-lab/salmon/releases/download/v0.9.1/Salmon-0.9.1_linux_x86_64.tar.gz
 tar xzf Salmon-0.9.1_linux_x86_64.tar.gz
 export PATH=$PATH:$HOME/Salmon-latest_linux_x86_64/bin
+echo 'export PATH=$PATH:$HOME/Salmon-latest_linux_x86_64/bin' >> ~/.bashrc
 ```
 
 5. Run:
@@ -89,16 +91,13 @@ cd yeast
 
 6. Download some data from [Schurch et al, 2016](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4878611/):
 
-@CTB
-
 ```
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR458/ERR458500/ERR458500.fastq.gz
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR458/ERR458501/ERR458501.fastq.gz
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR458/ERR458502/ERR458502.fastq.gz
-
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR458/ERR458493/ERR458493.fastq.gz
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR458/ERR458494/ERR458494.fastq.gz
-curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR458/ERR458495/ERR458495.fastq.gz
+curl -L https://osf.io/5daup/download -o ERR458493.fastq.gz
+curl -L https://osf.io/8rvh5/download -o ERR458494.fastq.gz
+curl -L https://osf.io/2wvn3/download -o ERR458495.fastq.gz
+curl -L https://osf.io/xju4a/download -o ERR458500.fastq.gz
+curl -L https://osf.io/nmqe6/download -o ERR458501.fastq.gz
+curl -L https://osf.io/qfsze/download -o ERR458502.fastq.gz
 ```
 
 7. Download the yeast reference transcriptome:
@@ -124,10 +123,8 @@ done
 
 Read up on [libtype, here](https://salmon.readthedocs.io/en/latest/salmon.html#what-s-this-libtype).
 
-10. Collect all of the sample counts using [this Python script](https://github.com/ngs-docs/2016-aug-nonmodel-rnaseq/blob/master/files/gather-counts.py):
+10. Collect all of the sample counts using [this Python script](https://github.com/ngs-docs/2018-ggg201b/blob/master/lab6-rnaseq/gather-counts.py):
 
-
-@CTB
 ```
 python2 ~/2018-ggg201b/lab6-rnaseq/gather-counts.py
 ```
