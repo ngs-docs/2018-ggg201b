@@ -35,10 +35,12 @@ With any sort of RNAseq project, you will at some point (depending on your quest
         wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
         sudo gdebi -n rstudio-server-1.0.143-amd64.deb   
 
-You should text indicating that R Studio is running like the following:
+  You should text indicating that R Studio is running like the following.
 
         Mar 09 00:36:33 js-169-205.jetstream-cloud.org systemd[1]: Starting RStudio Server...
         Mar 09 00:36:33 js-169-205.jetstream-cloud.org systemd[1]: Started RStudio Server.
+
+4. :
 
 4. Run:
 
