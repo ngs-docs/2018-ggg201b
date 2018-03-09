@@ -27,11 +27,17 @@ With any sort of RNAseq project, you will at some point (depending on your quest
         sudo apt-get -y build-dep libcurl4-gnutls-dev
         sudo apt-get -y install libcurl4-gnutls-dev
         sudo apt-get install libxml2-dev
+        sudo apt-get -y install gdebi-core r-base
         sudo Rscript --no-save ~/2017-ucdavis-igg201b/lab9/install-pathview-clusterProfiler.R
+
+4. Install R Studio:
+
+        wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
+        sudo gdebi -n rstudio-server-1.0.143-amd64.deb   
 
 4. Run:
 
-        cd ~/2017-ucdavis-igg201b/lab9/
+        cd 2018-ggg201b/lab7-rnaseq-enrichment/
         mkdir functional-analysis
         cd functional-analysis
 
