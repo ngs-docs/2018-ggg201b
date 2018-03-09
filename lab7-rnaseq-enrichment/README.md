@@ -1,9 +1,9 @@
 # Lab 9 - RNAseq expression analysis, re-revisited (this time with function in mind)
 
-3/17/2017, Harriet Alexander, harriet.xander@gmail.com
+3/9/2018, Harriet Alexander, harriet.xander@gmail.com
 
 
-With any sort of RNAseq project, you will at some point (depending on your question), want to turn the lists of fold change and significantly differentially abundant genes into some sort of biologically meaningful information. In this lab we will be relying upon the [KEGG](http://www.genome.jp/kegg/pathway.html) database to help get a better idea of the biochemical consequences of the mutation. There are many different metabolic databases/frameworks you can choose from (e.g. GO), but I tend to gravitate towards KEGG for a few reasons: 1) the hierarchy of metabolic pathways is more logical than GO and 2) it can incorporate the co-analysis of genomic/transcriptomic/proteomic data and metabolics data (more on this later).
+With any sort of RNAseq project, you will at some point (depending on your question), want to turn the lists of fold change and significantly differentially abundant genes into some sort of biologically meaningful information. In this lab we will be relying upon the [KEGG](http://www.genome.jp/kegg/pathway.html) database to help get a better idea of the biochemical consequences of the mutation. There are many different metabolic databases/frameworks you can choose from (e.g. GO), but I tend to gravitate towards KEGG for a few reasons: 1) the hierarchy of metabolic pathways is more logical than GO and 2) it can incorporate the co-analysis of genomic/transcriptomic/proteomic data and metabolomic data (more on this later).
 
 ### Learning objectives:
 
@@ -26,33 +26,33 @@ With any sort of RNAseq project, you will at some point (depending on your quest
         cd
         sudo apt-get -y build-dep libcurl4-gnutls-dev
         sudo apt-get -y install libcurl4-gnutls-dev
+        sudo apt-get install libcurl4-openssl-dev
         sudo apt-get install libxml2-dev
+        sudo apt-get install libssh2-devel
         sudo apt-get -y install gdebi-core r-base
         sudo Rscript --no-save ~/2017-ucdavis-igg201b/lab9/install-pathview-clusterProfiler.R
 
-4. Install R Studio:
+4. Install RStudio:
 
         wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb
         sudo gdebi -n rstudio-server-1.0.143-amd64.deb   
 
-  You should text indicating that R Studio is running like the following.
+4. You should text indicating that RStudio is running like the following. This indicates that the RStudio server is now running (much like a Jupyter Notebook):
 
         Mar 09 00:36:33 js-169-205.jetstream-cloud.org systemd[1]: Starting RStudio Server...
         Mar 09 00:36:33 js-169-205.jetstream-cloud.org systemd[1]: Started RStudio Server.
 
-4. :
+4. Now, we can type the following to figure out where the RStudio server is running. Click on the hyperlink and it should take you to the RStudio server. You can then sign in using the same username/password that you use to log in to jetstream.:
 
-4. Run:
+        echo My RStudio Web server is running at: http://$(hostname):8787/
+
+4. Finally, navigate into the lab 7 folder and make a directory called functional-analysis:
 
         cd 2018-ggg201b/lab7-rnaseq-enrichment/
         mkdir functional-analysis
         cd functional-analysis
 
 ## Identify the metabolic pathways in KEGG that are statistically over-represented
-
-1. Start R in your terminal:
-
-        R
 
 1. Load the `clusterProfiler` library (for more information on clusterProfiler see [Yu et al. 2012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3339379/)):
 
