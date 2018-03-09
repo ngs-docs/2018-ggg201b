@@ -28,7 +28,6 @@ With any sort of RNAseq project, you will at some point (depending on your quest
         sudo apt-get install libxml2-dev
         sudo apt-get install libssh2-devel
         sudo apt-get -y install gdebi-core r-base
-        sudo Rscript --no-save ~/2017-ucdavis-igg201b/lab9/install-pathview-clusterProfiler.R
 
 4. Install RStudio:
 
