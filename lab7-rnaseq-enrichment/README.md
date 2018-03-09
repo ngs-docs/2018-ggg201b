@@ -1,4 +1,4 @@
-# Lab 9 - RNAseq expression analysis, re-revisited (this time with function in mind)
+# Lab 7 - RNAseq expression analysis, re-revisited (this time with function in mind)
 
 3/9/2018, Harriet Alexander, harriet.xander@gmail.com
 
