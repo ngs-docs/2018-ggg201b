@@ -15,8 +15,6 @@ With any sort of RNAseq project, you will at some point (depending on your quest
 
 1. Start up a new cloud instance (as usual; see [Start up an m1.medium instance running Ubuntu 16.04 on Jetstream.](../lab1-jetstream/boot.md)).
 
-2. Open the web shell. Run `bash`.
-
 3. Clone the course github repo:
 
          git clone https://github.com/ngs-docs/2018-ggg201b.git
