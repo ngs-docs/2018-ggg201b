@@ -1,47 +1,52 @@
 library(clusterProfiler)
 library(DOSE)
-setwd('/Users/halexand/Projects/DeepDOM/KeggAnalysis')
-gene.data <- read.csv(file='Diatom/Full_Comparison_KEGG.edgeR.tab.tps.csv', row.names=1)
-de.genes <- subset(gene.data, PValue < 0.1)
-up.genes <-subset(de.genes, logFC > 0)
+setwd('~/2018-ggg201b/lab7-rnaseq-enrichment/functional-analysis')
+
+
+# get the database
+gene.data <- read.csv(file='../yeast-edgeR.csv', row.names=1)
+
+#subset data to identify sig. DE genomes
+de.genes <- subset(gene.data, FDR < 0.05)
+up.genes <-subset(de.genes, logFC > 1)
 up.genes.names <-row.names(up.genes)
-dn.genes <-subset(de.genes, logFC < 0)
-dn.genes.names <-row.names(dn.genes)
 
-kegg.up.enrichKEGG<-enrichKEGG(up.genes.names, organism='tps', pvalueCutoff=0.2)
-kegg.dn.enrichKEGG<-enrichKEGG(dn.genes.names, organism='tps', pvalueCutoff=0.2)
-
-kegg.up.enrichMKEGG<-enrichMKEGG(up.genes.names, organism='tps', pvalueCutoff=0.2)
-kegg.dn.enrichMKEGG<-enrichMKEGG(dn.genes.names, organism='tps', pvalueCutoff=0.2)
+# get enrichment
+kegg.up.enrichKEGG<-enrichKEGG(up.genes.names, organism='sce')
 
 summary(kegg.up.enrichKEGG)
-summary(kegg.dn.enrichKEGG)
-summary(kegg.up.enrichMKEGG)
-summary(kegg.dn.enrichMKEGG)
 
+# do the same for down regulated genes
+
+#FILL ME IN
+
+# look at pathways
+
+library(pathview)
+
+data(korg)
+head(korg)
+
+# get organism of interest
+
+organism <- "saccharomyces cerevisiae"
+matches <- unlist(sapply(1:ncol(korg), function(i) {agrep(organism, korg[, i])}))
+(kegg.code <- korg[matches, 1, drop = F])
+
+#get the fold change data
 gene.fc<-gene.data[1]
+head(gene.fc)
 
-phag<-'tps04145'
-nmet<-'tps00910'
-aa <-'tps01230'
-photo <- 'tps00195'
-carb <- 'tps00710'
-tca <-'tps00020'
-purine <- 'tps00230'
-sphingo <-'tps00600'
-endo <-'tps04144'
-peroxi<-'tps04146'
-autophag <-'tps04136'
-tpslist<-c(phag, nmet, aa, photo, carb, tca, purine, sphingo,  endo, peroxi, autophag)
+#simulate compound database
 
-for (map in tpslist){
-  pv.out <- pathview(gene.data = gene.fc, gene.idtype = "KEGG",
-                     pathway.id = map, species = kegg.code, out.suffix = map,
-                     keys.align = "y", kegg.native = T, match.data=T, 
-                     key.pos = "topright", limit=c(-1, 1), low="blue", mid="snow2", high="orange")
-  plot.name<-paste(map,map,"png",sep=".")
-  
-}
+cpd.data <- data.frame(FC = sim.mol.data(mol.type = "cpd", nmol = 4000))
+head(cpd.data)
 
+# look at the Meiosis pathways
+map<-'sce04113'
+pv.out <- pathview(gene.data = gene.fc,  cpd.data = cpd.data, gene.idtype = "KEGG",
+pathway.id = map, species = kegg.code, out.suffix = map,
+keys.align = "y", kegg.native = T, match.data=T, key.pos = "topright")
+plot.name<-paste(map,map,"png",sep=".")
 
-
+#Do some other pathway!
